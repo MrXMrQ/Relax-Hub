@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import { BsSkipBackwardFill, BsFillPlayFill, BsSkipForwardFill, BsFillVolumeDownFill, BsFillVolumeMuteFill, BsFilm, BsFillGridFill, BsGearFill } from 'react-icons/bs';
 import { Inter } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -14,18 +14,40 @@ export default function Home() {
             <div className='bg-red-300 p-3 col-start-3 row-start-1'>test</div>
           </div>
         </div>
-        <div className='flex justify-center w-11/12 h-[3rem] rounded-lg bg-stone-950 bg-opacity-90 shadow-2xl shadow-stone-800 outline outline-slate-200 outline-1 text-center text'>
-          <div className="bg-blue-400 shrink w-48">
-            Time | Day/Night
+        <div className='flex w-11/12 lg:h-[3.4rem] md:h-[3.4rem] sm:h-[3.4rem] rounded-lg bg-gradient-to-r from-gray-800 to-zinc-900 shadow-2xl shadow-stone-800 outline outline-slate-200 outline-1 text-center items-center px-4' style={{ fontSize: '1.75rem' }}>
+          <div className='flex flex-auto'>
+            <button>
+              ..
+            </button>
           </div>
-          <div className='bg-blue-600 shrink w-96'>
-            Back | Play/Pause | Skip | Volume | Mute Buttons
+          <div className='flex flex-auto justify-center items-center space-x-4' >
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsSkipBackwardFill />
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsFillPlayFill />
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsSkipForwardFill />
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsFillVolumeDownFill />
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsFillVolumeMuteFill />
+
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsFilm />
+            </button>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsFillGridFill />
+            </button>
           </div>
-          <div className='bg-blue-800 shrink w-32'>
-            Szene | Tools
-          </div>
-          <div className='bg-blue-400 shrink w-32'>
-            Options
+          <div className='flex flex-auto justify-end'>
+            <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110'>
+              <BsGearFill />
+            </button>
           </div>
         </div>
       </div>
