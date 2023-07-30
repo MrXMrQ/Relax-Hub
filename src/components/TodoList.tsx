@@ -1,35 +1,53 @@
-import React, { useState, useEffect } from 'react';
-import { BsPlusLg } from 'react-icons/bs';
-import TodoItem from './TodoItem';
+import React, { useState } from 'react'
+import TodoItem from './TodoItem'
 
 interface Todo {
-  id: number;
-  text: string;
-  completed: boolean;
+  id: number
+  text: string
+  completed: boolean
 }
 
 function TodoList() {
-  const [newTodoText, setNewTodoText] = useState('');
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [newTodoText, setNewTodoText] = useState('')
+  const [todos, setTodos] = useState<Todo[]>([])
 
+  /**
+   * Fügt ein neues To-Do-Element zur Liste hinzu, wenn der neue Text nicht leer ist.
+   * Erzeugt ein neues To-Do-Objekt mit einer eindeutigen ID (basierend auf dem aktuellen Zeitstempel),
+   * dem eingegebenen Text und der Status "completed: false". Setzt den neuen Zustand für die To-Do-Liste,
+   * indem das vorherige Array mit der Verbreiterungssyntax (...) beibehalten wird und das neue To-Do-Objekt hinzugefügt wird.
+   * Setzt dann den neuen Eingabetext auf einen leeren String.
+   */
   const handleAddTodo = () => {
     if (newTodoText.trim() !== '') {
       const newTodo: Todo = {
         id: Date.now(),
         text: newTodoText,
-        completed: false,
+        completed: false
       }
-      setTodos((prevTodos) => [...prevTodos, newTodo]);
+      setTodos((prevTodos) => [...prevTodos, newTodo])
       setNewTodoText('')
     }
   }
 
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  /**
+   * Behandelt das Drücken der Enter-Taste in der Eingabe, um ein neues To-Do-Element hinzuzufügen.
+   * Wenn die Enter-Taste gedrückt wird, wird die handleAddTodo-Funktion aufgerufen,
+   * um das To-Do-Element zur Liste hinzuzufügen.
+   */
+  const handleKeyPress = (event: React.KeyboardEvent) => {
     if (event.key === 'Enter') {
-      handleAddTodo();
+      handleAddTodo()
     }
   }
 
+  /**
+   * Aktualisiert den Status (completed) eines To-Do-Elements basierend auf seiner ID.
+   * Sucht das To-Do-Element mit der übergebenen ID im vorherigen Array und erstellt ein neues Array,
+   * in dem der Status des entsprechenden Elements umgekehrt wird (true wird zu false und umgekehrt).
+   * Das neue Array wird als neuer Zustand für die To-Do-Liste gesetzt.
+   * @param {number} id - Die ID des To-Do-Elements, dessen Status aktualisiert werden soll.
+   */
   const handleToggleTodo = (id: number) => {
     setTodos((prevTodos) =>
       prevTodos.map((todo) =>
@@ -38,8 +56,15 @@ function TodoList() {
     )
   }
 
+  /**
+   * Entfernt ein To-Do-Element aus der Liste basierend auf seiner ID.
+   * Erstellt ein neues Array, das alle To-Do-Elemente aus dem vorherigen Array enthält,
+   * außer demjenigen mit der übergebenen ID.
+   * Das neue Array wird als neuer Zustand für die To-Do-Liste gesetzt, wodurch das To-Do-Element entfernt wird.
+   * @param {number} id - Die ID des To-Do-Elements, das entfernt werden soll.
+   */
   const handleRemoveTodo = (id: number) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id))
   }
 
   return (
@@ -48,7 +73,8 @@ function TodoList() {
         <div className="flex-1 text-center text-3xl font-bold">To do list</div>
       </div>
 
-      <input type="text"
+      <input
+        type="text"
         value={newTodoText}
         onChange={(e) => setNewTodoText(e.target.value)}
         onKeyPress={handleKeyPress}
@@ -57,18 +83,18 @@ function TodoList() {
       />
 
       <div className="mt-2 space-y-2">
-        {todos.map((todo) => (
+        {todos.map(({ id, text, completed }) => (
           <TodoItem
-            key={todo.id}
-            text={todo.text}
-            completed={todo.completed}
-            onToggle={() => handleToggleTodo(todo.id)}
-            onRemove={() => handleRemoveTodo(todo.id)}
+            key={id}
+            text={text}
+            completed={completed}
+            onToggle={() => handleToggleTodo(id)}
+            onRemove={() => handleRemoveTodo(id)}
           />
         ))}
       </div>
     </div>
-  );
+  )
 }
 
-export default TodoList;
+export default TodoList
