@@ -26,7 +26,7 @@ function ButtonWithHover({ icon, text, isOpen, onClick }: ButtonWithHoverProps) 
       </button>
       {
       isHovered && !isOpen &&
-      <div className='absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg text-base font-bold px-5 py-1 bg-zinc-700 z-10'>
+      <div className='absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg shadow-lg text-base font-bold px-5 py-1 bg-zinc-700 z-20'>
         {text}
       </div>
       }

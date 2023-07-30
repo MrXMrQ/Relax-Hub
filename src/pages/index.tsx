@@ -2,6 +2,7 @@ import { BsSkipBackwardFill, BsFillPlayFill, BsSkipForwardFill, BsFillVolumeDown
 import { Inter } from 'next/font/google'
 import Clock from '@/components/Clock';
 import ButtonWithHover from '@/components/ButtonWithHover';
+import ToDoList from '@/components/TodoList';
 const inter = Inter({ subsets: ['latin'] })
 import React, { useState } from 'react'
 
@@ -53,12 +54,12 @@ export default function Home() {
                 showScene &&
                 <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg shadow-md text-base font-bold w-auto h-auto bg-zinc-700 px-2 py-2 space-y-10">
                   <div className='flex w-full h-full items-center'>
-                    <BsChevronCompactLeft size={50}/>
+                    <BsChevronCompactLeft size={50} />
                     <div className='bg-blue-500 w-[30rem] h-[20rem] rounded-md shadow-2xl'>
 
                     </div>
 
-                    <BsChevronCompactRight size={50}/>
+                    <BsChevronCompactRight size={50} />
                   </div>
                 </div>
               }
@@ -67,12 +68,8 @@ export default function Home() {
             <div className='relative'>
               {
                 showToDoList &&
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg shadow-md text-base font-bold w-auto h-auto bg-zinc-700 px-2 py-2 space-y-10">
-                  <div className='flex w-full h-full items-center'>
-                    <div className='bg-blue-500 w-[30rem] h-[20rem] rounded-md shadow-2xl'>
-
-                    </div>
-                  </div>
+                <div className='absolute bottom-16 left-1/2 transform -translate-x-1/2 z-10'>
+                    <ToDoList />
                 </div>
               }
               <ButtonWithHover icon={BsListCheck} text='to_do_list' isOpen={showToDoList} onClick={handleToDoList} />
@@ -80,10 +77,8 @@ export default function Home() {
             <div className='relative'>
               {
                 showYouTube &&
-                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg shadow-md text-base font-bold w-auto h-auto bg-zinc-700 px-2 py-2 space-y-10">
-                  <div className='bg-blue-500 w-[30rem] h-[20rem] rounded-md shadow-2xl'>
-
-                  </div>
+                <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg">
+                  
                 </div>
               }
               <ButtonWithHover icon={BsPlayBtnFill} text='YouTube' isOpen={showYouTube} onClick={handleYouTube} />
