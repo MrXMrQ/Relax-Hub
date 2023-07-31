@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import Clock from '@/components/Clock';
 import ButtonWithHover from '@/components/ButtonWithHover';
 import ToDoList from '@/components/TodoList';
+import YouTubePlayer from '@/components/YouTubePlayer';
 const inter = Inter({ subsets: ['latin'] })
 import React, { useState } from 'react'
 
@@ -78,7 +79,7 @@ export default function Home() {
               {
                 showYouTube &&
                 <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 rounded-lg">
-                  
+                  <YouTubePlayer></YouTubePlayer>
                 </div>
               }
               <ButtonWithHover icon={BsPlayBtnFill} text='YouTube' isOpen={showYouTube} onClick={handleYouTube} />

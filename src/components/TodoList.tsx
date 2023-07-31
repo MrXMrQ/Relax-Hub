@@ -68,7 +68,7 @@ function TodoList() {
   }
 
   return (
-    <div className="rounded-lg w-[22rem] h-[22rem] overflow-auto px-3 py-2 shadow-inner bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
+    <div className="rounded-lg w-[22rem] h-[22rem] overflow-auto px-3 py-2 shadow-2xl bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
       <div className="flex justify-center items-center">
         <div className="flex-1 text-center text-3xl font-bold">To do list</div>
       </div>
