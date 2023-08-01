@@ -68,31 +68,31 @@ function TodoList() {
   }
 
   return (
-    <div className="rounded-lg w-[22rem] h-[22rem] overflow-auto px-3 py-2 shadow-2xl bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
-      <div className="flex justify-center items-center">
-        <div className="flex-1 text-center text-3xl font-bold">To do list</div>
+    <div className="rounded-lg w-[22rem] h-[22rem] overflow-auto px-2 shadow-2xl bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
+      <div className="flex-1 text-center text-3xl font-bold">To do list</div>
+      <div className='bg- bg-zinc-600 px-2 py-2 rounded-lg'>
+        <input
+          type="text"
+          value={newTodoText}
+          onChange={(e) => setNewTodoText(e.target.value)}
+          onKeyPress={handleKeyPress}
+          className="w-full rounded px-2 py-1 text-xl text-black outline-none"
+          placeholder="Enter your task..."
+        />
+
+        <div className="mt-2 space-y-2">
+          {todos.map(({ id, text, completed }) => (
+            <TodoItem
+              key={id}
+              text={text}
+              completed={completed}
+              onToggle={() => handleToggleTodo(id)}
+              onRemove={() => handleRemoveTodo(id)}
+            />
+          ))}
+        </div>
       </div>
 
-      <input
-        type="text"
-        value={newTodoText}
-        onChange={(e) => setNewTodoText(e.target.value)}
-        onKeyPress={handleKeyPress}
-        className="w-full rounded px-2 py-1 text-xl text-black outline-none"
-        placeholder="Enter your task..."
-      />
-
-      <div className="mt-2 space-y-2">
-        {todos.map(({ id, text, completed }) => (
-          <TodoItem
-            key={id}
-            text={text}
-            completed={completed}
-            onToggle={() => handleToggleTodo(id)}
-            onRemove={() => handleRemoveTodo(id)}
-          />
-        ))}
-      </div>
     </div>
   )
 }

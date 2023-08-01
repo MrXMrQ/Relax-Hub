@@ -1,11 +1,11 @@
-import React from 'react';
-import { BsXLg, BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs';
+import React from 'react'
+import { BsXLg, BsCheckCircle, BsCheckCircleFill } from 'react-icons/bs'
 
 interface TodoItemProps {
-  text: string;
-  completed: boolean;
-  onToggle: () => void;
-  onRemove: () => void;
+  text: string
+  completed: boolean
+  onToggle: () => void
+  onRemove: () => void
 }
 
 const TodoItem = ({ text, completed, onToggle, onRemove }: TodoItemProps) => {
@@ -21,7 +21,7 @@ const TodoItem = ({ text, completed, onToggle, onRemove }: TodoItemProps) => {
         <BsXLg size={25} />
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default TodoItem;
+export default TodoItem
