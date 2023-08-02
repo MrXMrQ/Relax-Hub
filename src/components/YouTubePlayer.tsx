@@ -36,11 +36,13 @@ const YouTubePlayer = () => {
           setInput('')
           setPlaceholder('Enter YouTube URL here')
         } else {
+          setVideoId('')
           setPlaceholder('Die eingegebene URL ist keine gültige YouTube-URL.')
           setInput('')
         }
       }
     } catch (error) {
+      setVideoId('')
       setPlaceholder('Die eingegebene URL ist keine gültige YouTube-URL.')
       setInput('')
     }
@@ -62,7 +64,7 @@ const YouTubePlayer = () => {
         </button>
       </div>
       <div className='bg-zinc-700 w-[42rem] h-[20rem] rounded-md flex justify-center items-center'>
-        {!videoId && <BsFillCameraVideoOffFill />}
+        {videoId === '' && <BsFillCameraVideoOffFill />}
         {videoId && (
           <iframe className='w-full h-full' src={`https://www.youtube.com/embed/${videoId}`} />
         )}

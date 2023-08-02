@@ -11,13 +11,13 @@ interface TodoItemProps {
 const TodoItem = ({ text, completed, onToggle, onRemove }: TodoItemProps) => {
   return (
     <div className='flex items-center justify-between'>
-      <span className={`text-left text-xl flex-1 ${completed ? 'text-gray-500' : ''}`}>
+      <span className={`text-left text-xl flex-1 ${completed ? 'text-gray-400' : ''}`}>
         {text}
       </span>
-      <button className='ml-2 p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110' onClick={onToggle}>
+      <button className='ml-2 p-1.5 rounded-md hover:bg-gradient-to-r from-gray-800 to-zinc-900 hover:scale-110 hover:outline outline-white outline-1' onClick={onToggle}>
         {completed ? <BsCheckCircleFill size={25} /> : <BsCheckCircle size={25} />}
       </button>
-      <button className='ml-2 p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110' onClick={onRemove}>
+      <button className='ml-2 p-1.5 rounded-md hover:bg-gradient-to-r from-gray-800 to-zinc-900 hover:scale-110 hover:outline outline-white outline-1' onClick={onRemove}>
         <BsXLg size={25} />
       </button>
     </div>

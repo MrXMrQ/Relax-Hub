@@ -68,9 +68,9 @@ function TodoList() {
   }
 
   return (
-    <div className="rounded-lg w-[22rem] h-[22rem] overflow-auto px-2 shadow-2xl bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
+    <div className="rounded-lg w-[20rem] h-[22rem] overflow-auto px-3 shadow-2xl bg-gradient-to-r from-gray-800 to-zinc-900 outline outline-white outline-1">
       <div className="flex-1 text-center text-3xl font-bold">To do list</div>
-      <div className='bg- bg-zinc-600 px-2 py-2 rounded-lg'>
+      <div className='bg-zinc-700 px-2 py-2 rounded-lg h-auto min-h-[19rem]'>
         <input
           type="text"
           value={newTodoText}
