@@ -6,9 +6,10 @@ interface ButtonWithHoverProps {
   text: string
   isOpen: boolean
   onClick?: () => void
+  
 }
 
-function ButtonWithHover({ icon, text, isOpen, onClick }: ButtonWithHoverProps) {
+function ButtonWithHover({ icon, text, isOpen, onClick}: ButtonWithHoverProps) {
   const [isHovered, setIsHovered] = useState<boolean>(false)
 
   const handleHover = () => {
@@ -21,7 +22,7 @@ function ButtonWithHover({ icon, text, isOpen, onClick }: ButtonWithHoverProps) 
 
   return (
     <div className='relative'>
-      <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:scale-110 flex items-center' onMouseEnter={handleHover} onMouseLeave={handleHoverLeave} onClick={onClick}>
+      <button className='p-1.5 rounded-md hover:bg-zinc-700 hover:animate-pulse hover:scale-110 flex items-center' onMouseEnter={handleHover} onMouseLeave={handleHoverLeave} onClick={onClick}>
         {icon && <span>{React.createElement(icon)}</span>}
       </button>
       {
